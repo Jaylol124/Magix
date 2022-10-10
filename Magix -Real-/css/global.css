@@ -1,0 +1,77 @@
+.login-form-frame {
+	width:700px;
+	margin:150px auto;
+	border-radius: 5px;
+	border:6px solid rgb(72, 73, 8);
+	padding:70px;
+	padding-top:100px;
+    padding-bottom:100px;
+	
+    background-image:url('../images/eye2.png'),url('../images/eye.png'),url('../images/loginAngel.jpg');
+    background-position:5% 50%, 95% 50%,0% 10%;
+
+	background-repeat:no-repeat, no-repeat,no-repeat;
+    background-size: 150px,150px,cover;
+
+    
+
+    text-align: center;
+    
+    
+}
+
+.page-container{
+    
+    background-image:url('../images/the_tomb_king.jpg');
+    
+	background-repeat:no-repeat;
+    background-size: cover;
+}
+
+.site-header {
+    
+	overflow: hidden;
+    background-color: #869c04;
+    padding: 4px 4px;
+    border-bottom: 3px solid rgb(9, 16, 16) ;
+
+    background-image:url('../images/tumblr_muhbnjse6i1rj8e9io1_500.gif');
+    
+	background-repeat:no-repeat;
+    background-size: 100px;
+    background-position:20% 90%;
+    
+    
+   
+}
+
+.site-header  a {
+    
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px; 
+    line-height: 25px;
+    border-radius: 4px;
+
+    
+    
+    
+   
+}
+
+.menu-section {
+    float: right;
+}
+
+.header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.menu-section a:hover {
+    background-color: rgb(145, 136, 16);
+    color: black;
+  }
