@@ -1,12 +1,12 @@
 <?php
-	require_once("action/IndexAction.php");
+    require_once("action/AdminIndexAction.php");
 
-	$action = new IndexAction();
-	$data = $action->execute();
+    $action = new AdminIndexAction();
+    $data = $action->execute();
 
-	$pageTitle = "Page-Choix";
-	// require_once("partial/header.php");
+    $pageTitle = "Page-Jeu";
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,17 +16,18 @@
         <link href="css/jquery.lightbox-0.5.css" rel="stylesheet" media="screen" />
         <script src="js/jquery-1.4.2.min.js"></script>
         <script src="js/jquery.lightbox-0.5.min.js"></script>
-		<script src="js/lesModifs.js"></script>
+        <script src="js/game.js"></script>
         
     </head>
-    <body >
-        <!-- style="background-Image: url('images/index.jpg')" -->
+    <body>
+       
 		<div class="site-container">
 		    <div class="page-container" >
+            
 		    	<div class="site-header">
+		    		
                     <a href="#default" class="logo">Magix</a>
                     <a href="#default" class="nowPage"><?= $pageTitle ?></a>
-                    
                     
                     
 		    		<div class="menu-section">
@@ -57,38 +58,14 @@
                                 <?php
                             }
                         ?>
-						<script>
-            
-							if ("<?= $pageTitle ?>" ==  "Page-Choix") 
-							{
-
-								document.body.style.backgroundImage = "url('images/backcartejeu.jpg')";
-									
-									
-							}
-
-        				</script>
 		    			
 		    		</div>
 		    		<div class="clear"></div>
 		    	</div>
-		    	
-			</div>
-			<!-- <div class="line-ones" >
-				
-			</div> -->
-			<div class="les-options">
-				<div class= "jouer">
-					<a href="pagejeu.php">Jouer</a>
-				</div>
-				<div class= "les-cartes">
-					<a href="?logout=true">Cartes de jeux</a>
-				</div>
-			</div>
-			<div class= "chat">
-				<iframe class = "blabla"style="width:700px;height:562px;" onload="applyStyles(this)" 
-					src="https://magix.apps-de-cours.com/server/#/chat/<?= $_SESSION["key"] ?>/large">
-				</iframe>
-			</div>
+		    	<div class="page-content">
+            </div>
+        </div>
+	
+	
 <?php
 	require_once("partial/footer.php");

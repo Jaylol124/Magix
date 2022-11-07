@@ -1,9 +1,14 @@
+* {
+	padding:0;
+	margin:0;
+}
+
 .login-form-frame {
 	width:700px;
 	margin:150px auto;
 	border-radius: 5px;
 	border:6px solid rgb(72, 73, 8);
-	padding:70px;
+	padding:40px;
 	padding-top:100px;
     padding-bottom:100px;
 	
@@ -20,12 +25,25 @@
     
 }
 
-.page-container{
+body{
     
-    background-image:url('../images/the_tomb_king.jpg');
+    background-image:url('../images/EgypDeath.jpg');
     
 	background-repeat:no-repeat;
-    background-size: cover;
+    background-size:cover;
+    background-attachment: fixed;
+    width: 100vw;
+    height: 100vh;
+}
+
+.error-div
+{
+    border-radius: 2px;
+    background-color: #050505;
+    border:6px solid rgb(72, 73, 8);
+    color: white;
+    
+
 }
 
 .site-header {
@@ -36,13 +54,15 @@
     border-bottom: 3px solid rgb(9, 16, 16) ;
 
     background-image:url('../images/tumblr_muhbnjse6i1rj8e9io1_500.gif');
+
+    
+
+    
     
 	background-repeat:no-repeat;
     background-size: 100px;
     background-position:20% 90%;
     
-    
-   
 }
 
 .site-header  a {
@@ -56,9 +76,6 @@
     line-height: 25px;
     border-radius: 4px;
 
-    
-    
-    
    
 }
 
@@ -74,4 +91,83 @@
 .menu-section a:hover {
     background-color: rgb(145, 136, 16);
     color: black;
-  }
+}
+
+.form-label label {
+
+    color: white;
+    font-size:20px; 
+    background-color: black;
+    /* border:4px solid rgb(72, 73, 8); */
+}
+
+
+.form-input input{
+
+    padding-bottom: 1%;
+    /* background-color: rgb(72, 73, 8); */
+    border:6px solid rgb(58, 58, 56);
+    
+}
+
+/* .page-content{
+    width: 100vw;
+    height: 100vh;
+} */
+
+.Title h1 {
+    text-align:center; 
+    font-size:150px; 
+    color:rgb(145, 136, 16); 
+    letter-spacing:2px;
+    font-family:"Playfair Display", serif; 
+    font-weight:1000;
+    padding-bottom: 4%;
+    padding-top: 2%;
+}
+
+
+/* index ou il y a le jeu */
+
+/* .line-one{ */
+
+    /* border-bottom: 3px solid rgb(0, 47, 255);
+    
+    width: 110vw;
+    
+    transform: rotate(-25deg);
+    
+    transform-origin: right; */
+
+    /* border-left: 11px solid #050505;
+    display: block;
+    height: 100px;
+    margin: 0 auto;
+    width: 1px;
+    height: 100vmax; */
+
+.blabla {
+
+    background-color: rgb(145, 136, 16);
+
+    border: 3px solid #73AD21;
+
+}
+
+.chat {
+
+    margin: auto;
+   
+    
+    width: 50%;
+    padding: 10px;
+}
+
+.les-options {
+
+    width: 50%;
+
+    margin: 4px 2px;
+    display: inline-block;
+
+}
