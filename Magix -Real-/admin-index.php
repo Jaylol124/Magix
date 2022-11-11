@@ -86,7 +86,7 @@
 				</div>
 			</div>
 			<div class= "chat">
-				<iframe class = "blabla"style="width:700px;height:562px;" onload="applyStyles(this)" 
+				<iframe class = "chatIframe"style="width:700px;height:400px;" onload="applyStyles(this)" 
 					src="https://magix.apps-de-cours.com/server/#/chat/<?= $_SESSION["key"] ?>/large">
 				</iframe>
 			</div>
