@@ -50,7 +50,7 @@ body{
     
 	overflow: hidden;
     background-color: #869c04;
-    padding: 4px 4px;
+    padding: 4px 10px;
     border-bottom: 3px solid rgb(9, 16, 16) ;
 
     background-image:url('../images/tumblr_muhbnjse6i1rj8e9io1_500.gif');
@@ -153,16 +153,27 @@ body{
     border: 3px solid #73AD21;
 
     margin-top: 200px;
+
+    display:block;
 }
 
 .chat {
 
-    margin: 0 auto;
-    margin-left: 550px;
-   
+    /* width: 100px; */
+    
+    
+    
+    /* justify-content: center; */
+    
+    /* position: absolute;
+    right: ;
+    bottom: 500px ; */
 
-    /* width: 50%; */
-    padding: 10px;
+    display: flex;
+
+    justify-content: center;
+
+   
 }
 
 .les-options {
@@ -173,3 +184,301 @@ body{
     display: inline-block;
 
 }
+
+/* page jeu */
+
+.page-containerJeu{
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    width: 100vw;
+    height: 100vh;
+    
+    /* grid-auto-columns: row;
+    grid-template-rows: 0.5fr 3fr 0.5fr; */
+
+}
+
+.opponent-place{
+    /* position: fixed;
+   left: 0;
+   top: 0;
+   width: 100%; */
+   height: 20%;
+   background-color: rgba(7, 140, 228, 0.562);
+   color: white;
+   text-align: center;
+   border:6px solid rgb(0, 0, 0);
+
+   /* display: grid;
+
+   grid-template-columns: repeat(4,600px);
+
+   gap: 1%;
+   
+   grid-auto-rows: 100px;
+
+   /* display: flex; */
+
+   /* justify-content: start;  */
+
+    display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-area: 1;
+  
+
+}
+
+.opponent-card{
+
+    gap: 3%;
+   
+    display: flex;
+
+    justify-content: center;
+
+    padding-top: 50px;
+
+
+   
+    
+}
+
+.op-card{
+
+    height: 30px;
+
+    width: 20px;
+
+   
+    
+   
+}
+
+.back{
+
+    height: 100px;
+
+    width: 70px;
+
+}
+
+.opponent-image{
+    
+    
+    /* display: flex;
+    justify-content: space-between; */
+
+    
+    
+    display: grid;
+    grid-auto-columns: row;
+    grid-template-columns: 1fr 4fr 1fr ;
+
+    align-content: center;
+
+    border-right:2px solid rgb(0, 0, 0);
+
+    border-left:2px solid rgb(0, 0, 0);
+
+    
+}
+
+.img-op
+{
+    width: 30%;
+    border-radius: 50%;
+
+    margin: auto;
+
+    
+    
+}
+
+.op-life
+{
+
+    
+    display: flex;
+
+    align-items: center;
+
+    padding-left: 100px;
+    
+
+    background-image:url('../images/heartIcon.png');
+    background-position:50% 50%;
+
+    background-size: 50%;
+
+    background-repeat: no-repeat;
+
+
+}
+
+.op-life p
+{
+    font-size: 50px;
+    align-items: center;
+
+}
+
+.op-mana
+{
+    margin: auto;
+
+    padding-right: 100px;
+}
+
+.op-banner
+{
+    margin: auto;
+
+}
+
+.opponent-total-Card{
+    
+    display: flex;
+}
+
+.op-cardLeft{
+
+    margin: auto;
+}
+
+.air-jeu {
+
+    /* position: fixed;
+    left: 0;
+    top: 500px;
+    width: 100%;
+    
+    background-color: rgba(7, 140, 228, 0.562);
+    color: white;
+    text-align: center;
+    /* border:6px solid rgb(0, 0, 0); */
+
+
+    
+    /* display: grid;
+    grid-auto-flow: row;
+    grid-template-rows: 1fr 1fr 1fr 1fr ;
+
+    align-content: center;  */
+
+    height: 60%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    grid-area: 2;
+    
+
+    
+}
+
+.op-playCard{
+
+    gap: 2%;
+   
+    display: flex;
+
+    justify-content: center;
+
+    padding: 20px 0px;
+
+
+}
+
+.my-playCard{
+
+    gap: 2%;
+   
+    display: flex;
+
+    justify-content: center;
+
+    padding: 20px 0px;
+
+
+}
+
+.my-player{
+    
+    /* position: fixed;
+    left: 0;
+    bottom: 0;
+    ; */
+    height: 20%;
+    background-color: rgba(7, 140, 228, 0.562);
+    color: white;
+    text-align: center;
+    border:6px solid rgb(0, 0, 0);
+
+
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-area: 3;
+}
+
+.my-hand{
+
+    gap: 2%;
+   
+    display: flex;
+
+    justify-content: center;
+
+    padding: 20px 0px;
+
+}
+
+/* .my-card
+{
+    height: 100%;
+
+    width: 150px;
+} */
+
+
+#card
+{
+    height: 100%;
+
+    width: 100px;
+}
+
+.my-stats{
+
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    align-content: center;
+
+    
+}
+
+.my-choice{
+
+    
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    align-content: center;
+
+    
+}
+

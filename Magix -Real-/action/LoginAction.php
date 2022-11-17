@@ -31,7 +31,7 @@
 						// $_SESSION["visibility"] = $result["visibility"];
 						$_SESSION["key"] = $key;
 		
-						header("location: admin-index.php");
+						header("location: lobby.php");
 						exit;
 					}
 			 	}
