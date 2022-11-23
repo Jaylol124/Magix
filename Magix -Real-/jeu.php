@@ -68,25 +68,25 @@
                 <div class="air-jeu">
                     <div class="op-playCard" >
                         <div class="card">
-                            <img id = "card" src="../Magix -Real-/images/Yu-Gi-Oh BlueDragon.jpg" alt="">
+                            
                         </div>
                         <div class="card">
-                            <img id = "card" src="../Magix -Real-/images/Yu-Gi-Oh BlueDragon.jpg" alt="">
+                            
                         </div>
                         <div class="card">
-                            <img id = "card" src="../Magix -Real-/images/Yu-Gi-Oh BlueDragon.jpg" alt="">
+                            
                         </div>
                     </div>
 
                     <div class="my-playCard" >
                         <div class="card">
-                            <img id = "card" src="../Magix -Real-/images/Yu-Gi-Oh BlueDragon.jpg" alt="">
+                            
                         </div>
                         <div class="card">
-                            <img id = "card" src="../Magix -Real-/images/Yu-Gi-Oh BlueDragon.jpg" alt="">
+                            
                         </div>
                         <div class="card">
-                            <img id = "card" src="../Magix -Real-/images/Yu-Gi-Oh BlueDragon.jpg" alt="">
+                            
                         </div>
 
                         
@@ -109,13 +109,13 @@
 
                     <div class="my-hand" >
                         <div class="card">
-                            <img id = "card" src="../Magix -Real-/images/Yu-Gi-Oh BlueDragon.jpg" alt="">
+                            
                         </div>
                         <div class="card">
-                            <img id = "card" src="../Magix -Real-/images/Yu-Gi-Oh BlueDragon.jpg" alt="">
+                            
                         </div>
                         <div class="card">
-                            <img id = "card" src="../Magix -Real-/images/Yu-Gi-Oh BlueDragon.jpg" alt="">
+                            
                         </div>
 
 

@@ -159,3 +159,35 @@ function time(data)
     node.removeChild(node.lastElementChild);
     node.append(div);
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+function my_power(data) // pour le power
+{
+
+    let div = document.createElement("p");
+   
+    let node = document.querySelector(".my-power");
+    if(data["heroPowerAlreadyUsed"] == false)
+    {
+
+       
+
+        let textNode = document.createTextNode("yes");
+        div.append(textNode);
+
+        node.removeChild(node.lastElementChild);
+        node.append(div);
+    }
+    else
+    {
+
+        let textNode = document.createTextNode("no");
+        div.append(textNode);
+    
+        node.removeChild(node.lastElementChild);
+        node.append(div);
+    }
+    
+}
+

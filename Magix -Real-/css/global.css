@@ -266,6 +266,8 @@ body{
 
     width: 70px;
 
+    
+
 }
 
 .opponent-image{
@@ -452,13 +454,18 @@ body{
 } */
 
 
-#card
+.card
 {
-    height: 100%;
+    height: 150px;
 
     width: 100px;
-}
 
+    background-image: url(../images/emptyCard.jpg);
+
+    background-size: cover;
+
+    background-repeat: round;
+}
 .my-stats{
 
     display: grid;
