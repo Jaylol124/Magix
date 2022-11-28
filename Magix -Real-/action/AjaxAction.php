@@ -12,6 +12,7 @@
             // $data["type"] = "TRAINING";
             // $data["type"] = $_SESSION["TRAINING"];
             $result = parent::callAPI("games/state",$data);
+            
 
             if (!empty($result)) {
                 if ($result == "INVALID_KEY" ) {
