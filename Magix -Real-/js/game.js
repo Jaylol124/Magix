@@ -29,7 +29,8 @@ const state2 = (monchoix,id_my,id_op) => {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data); // contient les cartes/état du jeu.
+
+            erreur(data);
             
             
         })
@@ -53,13 +54,15 @@ const update = (data) => {
     my_card(data);
     my_mana(data);
     //my_power(data);
-    //time(data);
+    time(data);
     /////////////////////// rafraichir les etats de la partie donc les cartes du jeu
     remove(".op-playCard");
     remove(".my-playCard");
     remove(".my-hand");
     re_my_hand(data);
     re_board(data);
+
+    console.log("wsh")
 
 }
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -164,15 +167,15 @@ function my_power(data) // pour le power
 }
 
 function time(data) {
-    // let div = document.createElement("p");
+    let div = document.createElement("p");
 
-    // let textNode = document.createTextNode(data["remainingTurnTime"]);
-    // div.append(textNode);
+    let textNode = document.createTextNode(data["remainingTurnTime"]);
+    div.append(textNode);
 
-    // let node = document.querySelector(".my-endTurn");
+    let node = document.querySelector(".tmp");
 
-    // node.removeChild(node.lastElementChild);
-    // node.append(div);
+    node.removeChild(node.lastElementChild);
+    node.append(div);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -203,6 +206,22 @@ function my_power(data) // pour le power
     // }
 
 }
+
+function erreur(data) // affiche les different code d'erreur
+{
+
+    let div = document.createElement("p");
+
+    let textNode = document.createTextNode(data);
+    div.append(textNode);
+
+    let node = document.querySelector(".erreur");
+
+    node.removeChild(node.lastElementChild);
+    node.append(div);
+}
+
+
 //////////////////////////////////////////////////////////////////////////////////////////// afficher les cartes du jeu
 let spriteList = [];
 
@@ -212,7 +231,7 @@ function re_my_hand(data) // pour actualiser les cartes de ma main
 
     for (i = 0; i < data["hand"].length; i++) {
 
-        spriteList.push(new cartes(data, i, ".my-hand"))
+        spriteList.push(new cartes(data["hand"], i, ".my-hand",data["hand"][i].uid));
 
     }
 
@@ -224,15 +243,19 @@ function re_board(data) // pour actualiser les cartes sur le terrains
 
     for (i = 0; i < data["board"].length; i++) {
 
-        spriteList.push(new cartes(data, i, ".my-playCard"))
+        spriteList.push(new cartes(data["board"], i, ".my-playCard", data["board"][i].uid));
 
     }
 
     for (i = 0; i < data["opponent"].board.length; i++) {
 
-        spriteList.push(new cartes(data, i, ".op-playCard"))
+        spriteList.push(new cartes(data["opponent"]["board"], i, ".op-playCard",data["opponent"]["board"][i].uid));
 
     }
+
+    // data["board"].forEach(element => {
+    //     spriteList.push(new cartes(element[]))
+    // });
 
 }
 
@@ -250,7 +273,7 @@ let ma_carte;
 let opp_carte;
 
 class cartes {
-    constructor(data, i, direction) {
+    constructor(data, i, direction,uid) {
 
         this.div = document.createElement("div");
 
@@ -267,7 +290,7 @@ class cartes {
         this.div_placer.className = "top_info";
 
 
-        this.id = document.createTextNode(data["hand"][i].id);
+        
         ///////////////////////////////////////////////////////
 
 
@@ -288,11 +311,11 @@ class cartes {
         ///////////////////////////////////////////////////////
 
 
-        this.textNode1 = document.createTextNode(data["hand"][i].atk);
-        this.textNode2 = document.createTextNode(data["hand"][i].cost);
-        this.textNode3 = document.createTextNode(data["hand"][i].hp);
-        this.textNode4 = document.createTextNode(data["hand"][i].mechanics[0]);
-        this.textNode5 = document.createTextNode(data["hand"][i].mechanics[1]);
+        this.textNode1 = document.createTextNode(data[i].atk);
+        this.textNode2 = document.createTextNode(data[i].cost);
+        this.textNode3 = document.createTextNode(data[i].hp);
+        this.textNode4 = document.createTextNode(data[i].mechanics[0]);
+        this.textNode5 = document.createTextNode(data[i].mechanics[1]);
 
         this.node.append(this.textNode1);
         this.node2.append(this.textNode2);
@@ -313,32 +336,56 @@ class cartes {
 
 
         this.div_princ.append(this.div_secon);
-
-        this.uid = data["hand"][this.index].uid;
+        this.uid = uid;
         this.div_secon.onclick = () => {
 
+            // if(this.enplacement == ".my-playCard")
+            // {
+            //     ma_carte = this.uid;
+            //     etat = "attaquer";
+            //     if(this.enplacement == ".op-playCard" )
+            //     {
+            //         ma_carte = this.uid;
+            //     }
+                
+            //     console.log(ma_carte);
+            //     if(opp_carte != null )
+            //     {
+            //         state2("ATTACK",ma_carte,opp_carte);
+                    
+            //         ma_carte = null;
+            //         opp_carte = null;
+            //     }
+            // }
             
             if(this.enplacement == ".my-playCard" )
             {
                 
-                ma_carte = this.uid;
+                ma_carte = this.uid
                 console.log(ma_carte);
-                if(opp_carte != null )
-                {
-                    state2("ATTACK",ma_carte,opp_carte);
-                    
-                    ma_carte = null;
-                    opp_carte = null;
-                }
-            }
-            else if (this.enplacement == ".op-playCard")
-            {
-                opp_carte = this.uid;
                 
+                
+            }
+
+            if (this.enplacement == ".op-playCard" && ma_carte != null)
+            {
+                
+                opp_carte = this.uid;
+
+                console.log(opp_carte);
+
+                state2("ATTACK",ma_carte,opp_carte);
+                    
+                ma_carte = null;
+                opp_carte = null;
 
             }
-            else if (this.enplacement == ".my-hand")
+            
+
+            if (this.enplacement == ".my-hand")
             {
+                console.log(this.uid);
+                // this.uid = data["hand"][this.index].uid;
                 ma_carte = this.uid;
                 console.log(ma_carte);
                 state2("PLAY",ma_carte,null);
@@ -351,19 +398,17 @@ class cartes {
 }
 //////////////////////////////////////////////////////////////////////////////////////////// pour les actions comme attaquer
 
-function action(action) // pour 
+function power() // pour 
 {
-
-    if(action == "power")
-    {
-        state2("HERO_POWER",null,null);
-    }else if (action == "end_turn")
-    {
-        state2("END_TURN",null,null);
-    }else if (action == "chat")
-    {
-        state2("HERO_POWER",null,null);
-    }
+    state2("HERO_POWER",null,null);
+}
+function end_turn() // pour 
+{
+    state2("END_TURN",null,null);
+}
+function chat() // pour 
+{
+    
 
 }
 

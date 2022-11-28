@@ -74,11 +74,17 @@
             </div>
 
             <div class="air-jeu">
+                
+                
                 <div class="op-playCard">
                     <div class="card">
-
                     </div>
 
+
+                </div>
+
+                <div class="erreur">
+                    <p></p>
                 </div>
 
                 <div class="my-playCard">
@@ -89,6 +95,8 @@
 
 
                 </div>
+                
+                
             </div>
 
             <div class="my-player">
@@ -126,20 +134,25 @@
 
 
                 <div class="my-choice">
+                    <div class="tmp">
+                        <p>0</p>
+                    </div>
                     <form action="jeu.php" method="post">
                         <div class="my-power">
-                            <button onclick="action('power')" type="button" >HERO POWER</button>
+                            <button onclick="power()" type="button">HERO POWER</button>
                         </div>
 
                         <div class="my-endTurn">
-                            <button onclick="action('end_turn')"name="end_turn" type="button">END TURN</button>
+                            <button onclick="end_turn()" type="button">END TURN</button>
                         </div>
 
                         <div class="my-chat">
-                            <button onclick="action('chat')"name="chat" type="button">OPEN CHAT</button>
+                            <button onclick="chat()"name="chat" type="button">OPEN CHAT</button>
                         </div>
 
                     </form>
+
+                    
                 </div>
 
             </div>
