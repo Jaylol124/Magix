@@ -1,6 +1,6 @@
 <?php
     require_once("action/CommonAction.php");
-    require_once("action/DAO/ContentDAO.php");
+   
 
     class LobbyAction extends CommonAction {
 

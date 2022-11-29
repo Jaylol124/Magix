@@ -317,6 +317,15 @@ class cartes {
         this.textNode4 = document.createTextNode(data[i].mechanics[0]);
         this.textNode5 = document.createTextNode(data[i].mechanics[1]);
 
+        ///////////////////////////////////////////////////////
+        this.leover1 = document.createTextNode(data[i].atk);
+        this.leover2 = document.createTextNode(data[i].cost);
+        this.leover3 = document.createTextNode(data[i].hp);
+
+        this.leover4 = document.createTextNode(data[i].mechanics[0]);
+        this.leover5 = document.createTextNode(data[i].mechanics[1]);
+        ///////////////////////////////////////////////////////
+
         this.node.append(this.textNode1);
         this.node2.append(this.textNode2);
         this.node3.append(this.textNode3);
@@ -393,6 +402,33 @@ class cartes {
            
 
         }
+        this.div_secon.onmouseover = () => { /// affiche la carte en plus gros
+            remove(".card_atk_big");
+            remove(".card_cost_big");
+            remove(".card_hp_big");
+
+            remove(".card_type_big");
+            remove(".card_desc_big");
+            
+            let forAtk = document.querySelector(".card_atk_big");
+            let forCost = document.querySelector(".card_cost_big");
+            let forHp = document.querySelector(".card_hp_big");
+
+            let forName = document.querySelector(".card_type_big");
+            let forDes = document.querySelector(".card_desc_big");
+            
+
+
+            
+            
+            forAtk.append(this.leover1)
+            forCost.append(this.leover2) 
+            forHp.append(this.leover3)
+            
+            forName.append(this.leover4) 
+            forDes.append(this.leover5)
+        }
+        
     }
 
 }
@@ -411,4 +447,6 @@ function chat() // pour
     
 
 }
+//////////////////////////////////////////////////////////////////////////////////////////// voir la carte
+
 

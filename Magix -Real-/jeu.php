@@ -155,6 +155,22 @@
                     
                 </div>
 
+                
+
+            </div>
+
+            <div class="card-viewer">
+                    <div class="card-big">
+                        <div class="top_info_big">
+                            <div class="card_atk_big">10</div>
+                            <div class="card_cost_big">10</div>
+                            <div class="card_hp_big">0</div>
+                        </div>
+
+                        <div class="card_img_big"></div>
+                        <div class="card_type_big">taunt</div>
+                        <div class="card_desc_big">Je suis une carte avec une des bizzare l;ajg;gj;jag</div>
+                    </div>
             </div>
         </div>
 
