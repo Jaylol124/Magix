@@ -33,7 +33,7 @@
             <div class="opponent-place">
                 <div class="opponent-card">
                     <div class="op-card">
-                        <img class="back" src="../Magix -Real-/images/carteFace.png" alt="">
+                        
                     </div>
                     <div class="op-card">
                         <img class="back" src="../Magix -Real-/images/carteFace.png" alt="">
@@ -48,7 +48,7 @@
                 <div class="opponent-image">
                     <div class="op-life">
 
-                        <img class="img-vie" src="../Magix -Real-/images/vie.png" alt="">
+                        <!-- <img class="img-vie" src="../Magix -Real-/images/vie.png" alt=""> -->
                         <p>0</p>
                         
                     </div>
@@ -56,7 +56,7 @@
                         <img class="img-op" src="../Magix -Real-/images/opponent.png" alt="">
                     </div>
                     <div class="op-mana">
-                        <img class="img-mana" src="../Magix -Real-/images/mana.png" alt="">
+                        
                         <p>0</p>
                         
                     </div>
@@ -103,15 +103,15 @@
 
                 <div class="my-stats">
                     <div class="my-life">
-                        <img class="img-vie" src="../Magix -Real-/images/vie.png" alt="">
+                        
                         <p>0</p>
                     </div>
                     <div class="my-card">
-                        <img class="back" src="../Magix -Real-/images/carteFace.png" alt="">
+                       
                         <p>0</p>
                     </div>
                     <div class="my-mana">
-                        <img class="img-mana" src="../Magix -Real-/images/mana.png" alt="">
+                        
                         <p>0</p>
                     </div>
                 </div>
@@ -135,7 +135,24 @@
 
                 <div class="my-choice">
                     <div class="tmp">
-                        <p>0</p>
+                        <div class="millieu-tmp">
+                        </div>
+
+                        <div class="le-contour" id="aiguille">
+                            <div class="le-baton">
+                                <div class="baton">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="turn">
+                            <p>0</p>
+                        </div>
+                        <div class="time">
+                            <p>0</p>
+                        </div>
+                        
+                        
+                        
                     </div>
                     <form action="jeu.php" method="post">
                         <div class="my-power">

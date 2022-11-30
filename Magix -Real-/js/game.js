@@ -5,9 +5,8 @@ const state = () => {
         .then(response => response.json())
         .then(data => {
             console.log(data); // contient les cartes/état du jeu.
-            console.log(data["hp"]);
             setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
-
+            
             if (data != null) {
                 update(data);
             }
@@ -55,14 +54,17 @@ const update = (data) => {
     my_mana(data);
     //my_power(data);
     time(data);
+    my_turn(data);
     /////////////////////// rafraichir les etats de la partie donc les cartes du jeu
     remove(".op-playCard");
     remove(".my-playCard");
     remove(".my-hand");
+    remove(".opponent-card");
+    op_hand(data);
     re_my_hand(data);
     re_board(data);
 
-    console.log("wsh")
+    
 
 }
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -172,38 +174,69 @@ function time(data) {
     let textNode = document.createTextNode(data["remainingTurnTime"]);
     div.append(textNode);
 
-    let node = document.querySelector(".tmp");
+    let node = document.querySelector(".time");
 
     node.removeChild(node.lastElementChild);
     node.append(div);
+    //////////////////////////////////////////////// pour le clock
+
+    let tmp = data["remainingTurnTime"] * 7.2;
+
+
+
+    document.getElementById("aiguille").style.transform = "rotate(" + tmp + "deg)";
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////
+function op_hand(data) {
+    
 
-function my_power(data) // pour le power
+    for (i = 0; i < data["opponent"].handSize; i++) {
+        
+        let div = document.createElement("div");
+        let img = document.createElement('img');
+
+        
+        img.src  = '../Magix -Real-/images/carteFace.png';
+
+        div.className = "op-card";
+        img.className = "back";
+        
+        div.append(img)
+
+        let node = document.querySelector(".opponent-card");
+
+        node.append(div);
+
+        
+
+    }
+}
+
+function my_turn(data) // pour le power
 {
 
-    // let div = document.createElement("p");
+    let div = document.createElement("p");
 
-    // let node = document.querySelector(".my-power");
-    // if (data["heroPowerAlreadyUsed"] == false) {
+    let node = document.querySelector(".turn");
+    if (data["yourTurn"] == true) {
 
 
 
-    //     let textNode = document.createTextNode("yes");
-    //     div.append(textNode);
+        let textNode = document.createTextNode("My Turn");
+        div.append(textNode);
 
-    //     node.removeChild(node.lastElementChild);
-    //     node.append(div);
-    // }
-    // else {
+        node.removeChild(node.lastElementChild);
+        node.append(div);
+    }
+    else {
 
-    //     let textNode = document.createTextNode("no");
-    //     div.append(textNode);
+        let textNode = document.createTextNode("OP Turn");
+        div.append(textNode);
 
-    //     node.removeChild(node.lastElementChild);
-    //     node.append(div);
-    // }
+        node.removeChild(node.lastElementChild);
+        node.append(div);
+    }
 
 }
 
@@ -232,6 +265,8 @@ function re_my_hand(data) // pour actualiser les cartes de ma main
     for (i = 0; i < data["hand"].length; i++) {
 
         spriteList.push(new cartes(data["hand"], i, ".my-hand",data["hand"][i].uid));
+        console.log(data["hand"][i].mechanics[0]);
+        
 
     }
 
@@ -244,6 +279,8 @@ function re_board(data) // pour actualiser les cartes sur le terrains
     for (i = 0; i < data["board"].length; i++) {
 
         spriteList.push(new cartes(data["board"], i, ".my-playCard", data["board"][i].uid));
+
+        
 
     }
 
@@ -292,8 +329,14 @@ class cartes {
 
         
         ///////////////////////////////////////////////////////
+        this.forAtk = document.querySelector(".card_atk_big");
+        this.forCost = document.querySelector(".card_cost_big");
+        this.forHp = document.querySelector(".card_hp_big");
 
-
+        this.forName = document.querySelector(".card_type_big");
+        
+        
+        ///////////////////////////////////////////////////////
         this.node = document.createElement("div");
         this.node2 = document.createElement("div");
         this.node3 = document.createElement("div");
@@ -314,23 +357,26 @@ class cartes {
         this.textNode1 = document.createTextNode(data[i].atk);
         this.textNode2 = document.createTextNode(data[i].cost);
         this.textNode3 = document.createTextNode(data[i].hp);
-        this.textNode4 = document.createTextNode(data[i].mechanics[0]);
-        this.textNode5 = document.createTextNode(data[i].mechanics[1]);
+        this.textNode4 = document.createTextNode(data[i].mechanics);
+        
 
+        
         ///////////////////////////////////////////////////////
         this.leover1 = document.createTextNode(data[i].atk);
         this.leover2 = document.createTextNode(data[i].cost);
         this.leover3 = document.createTextNode(data[i].hp);
 
-        this.leover4 = document.createTextNode(data[i].mechanics[0]);
-        this.leover5 = document.createTextNode(data[i].mechanics[1]);
+        this.leover4 = document.createTextNode(data[i].mechanics);
+        
         ///////////////////////////////////////////////////////
 
         this.node.append(this.textNode1);
         this.node2.append(this.textNode2);
         this.node3.append(this.textNode3);
         this.node4.append(this.textNode4);
-        this.node5.append(this.textNode5);
+        
+
+        
 
         this.div_placer.append(this.node);
         this.div_placer.append(this.node2);
@@ -341,31 +387,28 @@ class cartes {
 
         this.div_secon.append(this.node6);
         this.div_secon.append(this.node4);
-        this.div_secon.append(this.node5);
+        
 
 
         this.div_princ.append(this.div_secon);
         this.uid = uid;
-        this.div_secon.onclick = () => {
 
-            // if(this.enplacement == ".my-playCard")
-            // {
-            //     ma_carte = this.uid;
-            //     etat = "attaquer";
-            //     if(this.enplacement == ".op-playCard" )
-            //     {
-            //         ma_carte = this.uid;
-            //     }
-                
-            //     console.log(ma_carte);
-            //     if(opp_carte != null )
-            //     {
-            //         state2("ATTACK",ma_carte,opp_carte);
-                    
-            //         ma_carte = null;
-            //         opp_carte = null;
-            //     }
-            // }
+        
+        if(data[i].mechanics.includes("Taunt"))
+        {
+            
+            this.node4.style.color = "red";
+            
+        }
+        else if (data[i].mechanics.includes("Stealth"))
+        {
+            this.node4.style.color = "green";
+            
+        }
+        
+        
+        
+        this.div_secon.onclick = () => {
             
             if(this.enplacement == ".my-playCard" )
             {
@@ -403,6 +446,8 @@ class cartes {
 
         }
         this.div_secon.onmouseover = () => { /// affiche la carte en plus gros
+
+            // let carte = document.querySelector(".card-viewer");
             remove(".card_atk_big");
             remove(".card_cost_big");
             remove(".card_hp_big");
@@ -410,23 +455,46 @@ class cartes {
             remove(".card_type_big");
             remove(".card_desc_big");
             
-            let forAtk = document.querySelector(".card_atk_big");
-            let forCost = document.querySelector(".card_cost_big");
-            let forHp = document.querySelector(".card_hp_big");
+            // let forAtk = document.querySelector(".card_atk_big");
+            // let forCost = document.querySelector(".card_cost_big");
+            // let forHp = document.querySelector(".card_hp_big");
 
-            let forName = document.querySelector(".card_type_big");
-            let forDes = document.querySelector(".card_desc_big");
+            // let forName = document.querySelector(".card_type_big");
+            
+            this.forAtk.append(this.leover1)
+            this.forCost.append(this.leover2) 
+            this.forHp.append(this.leover3)
+            
+            this.forName.append(this.leover4) 
+
+            console.log(this.leover4);
+            if(this.forName.textContent.includes("Taunt")  )
+            {
+                
+                
+                this.forName.style.color = "red";
+            }
+            else if (this.forName.textContent.includes("Stealth"))
+            {
+                
+                this.forName.style.color = "green";
+            }
+            else
+            {
+                this.forName.style.color = "black";
+            }
+
+            
+            
+            
             
 
+            // carte.append(forAtk)
+            // carte.append(forCost)
+            // carte.append(forHp)
 
-            
-            
-            forAtk.append(this.leover1)
-            forCost.append(this.leover2) 
-            forHp.append(this.leover3)
-            
-            forName.append(this.leover4) 
-            forDes.append(this.leover5)
+            // carte.append(forAtk)
+            // carte.append(forAtk)
         }
         
     }
