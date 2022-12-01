@@ -60,6 +60,7 @@ const update = (data) => {
     remove(".my-playCard");
     remove(".my-hand");
     remove(".opponent-card");
+    op_name(data);
     op_hand(data);
     re_my_hand(data);
     re_board(data);
@@ -86,6 +87,18 @@ function op_mana(data) {
     div.append(textNode);
 
     let node = document.querySelector(".op-mana");
+
+    node.removeChild(node.lastElementChild);
+    node.append(div);
+}
+
+function op_name(data) {
+    let div = document.createElement("p");
+
+    let textNode = document.createTextNode(data["opponent"].username);
+    div.append(textNode);
+
+    let node = document.querySelector(".op-banner");
 
     node.removeChild(node.lastElementChild);
     node.append(div);

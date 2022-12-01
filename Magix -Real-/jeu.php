@@ -1,11 +1,11 @@
 <?php
-    require_once("action/LobbyAction.php");
+require_once("action/LobbyAction.php");
 
-    $action = new LobbyAction();
-    $data = $action->execute();
+$action = new LobbyAction();
+$data = $action->execute();
 
-    $pageTitle = "Jeu";
-    // require_once("partial/header.php");
+$pageTitle = "Jeu";
+// require_once("partial/header.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,7 +33,7 @@
             <div class="opponent-place">
                 <div class="opponent-card">
                     <div class="op-card">
-                        
+
                     </div>
                     <div class="op-card">
                         <img class="back" src="../Magix -Real-/images/carteFace.png" alt="">
@@ -48,17 +48,18 @@
                 <div class="opponent-image">
                     <div class="op-life">
 
-                        <!-- <img class="img-vie" src="../Magix -Real-/images/vie.png" alt=""> -->
                         <p>0</p>
-                        
+
                     </div>
                     <div class="op-banner">
+                        
                         <img class="img-op" src="../Magix -Real-/images/opponent.png" alt="">
+                        <p>bot</p>
                     </div>
                     <div class="op-mana">
-                        
+
                         <p>0</p>
-                        
+
                     </div>
                 </div>
 
@@ -74,8 +75,8 @@
             </div>
 
             <div class="air-jeu">
-                
-                
+
+
                 <div class="op-playCard">
                     <div class="card">
                     </div>
@@ -92,26 +93,28 @@
 
                     </div>
 
-
-
                 </div>
-                
-                
+
+                <div class="chat-ingame">
+                    <iframe class = "Iframe"style="width:100%;height:100px;" onload="applyStyles(this)" 
+                        src="https://magix.apps-de-cours.com/server/#/chat/<?= $_SESSION["key"] ?>/large">
+                    </iframe>
+                </div>
             </div>
 
             <div class="my-player">
 
                 <div class="my-stats">
                     <div class="my-life">
-                        
+
                         <p>0</p>
                     </div>
                     <div class="my-card">
-                       
+
                         <p>0</p>
                     </div>
                     <div class="my-mana">
-                        
+
                         <p>0</p>
                     </div>
                 </div>
@@ -150,9 +153,9 @@
                         <div class="time">
                             <p>0</p>
                         </div>
-                        
-                        
-                        
+
+
+
                     </div>
                     <form action="jeu.php" method="post">
                         <div class="my-power">
@@ -164,31 +167,37 @@
                         </div>
 
                         <div class="my-chat">
-                            <button onclick="chat()"name="chat" type="button">OPEN CHAT</button>
+                            <button onclick="chat()" name="chat" type="button">OPEN CHAT</button>
                         </div>
 
                     </form>
 
-                    
+
                 </div>
 
-                
+
 
             </div>
 
             <div class="card-viewer">
-                    <div class="card-big">
-                        <div class="top_info_big">
-                            <div class="card_atk_big">10</div>
-                            <div class="card_cost_big">10</div>
-                            <div class="card_hp_big">0</div>
-                        </div>
-
-                        <div class="card_img_big"></div>
-                        <div class="card_type_big">taunt</div>
-                        <div class="card_desc_big">Je suis une carte avec une des bizzare l;ajg;gj;jag</div>
+                <div class="card-big">
+                    <div class="top_info_big">
+                        <div class="card_atk_big">10</div>
+                        <div class="card_cost_big">10</div>
+                        <div class="card_hp_big">0</div>
                     </div>
+
+                    <div class="card_img_big"></div>
+                    <div class="card_type_big">taunt</div>
+                    <div class="card_desc_big">Je suis une carte avec une des bizzare l;ajg;gj;jag</div>
+                </div>
             </div>
+
+            <!-- <div class="chat-ingame">
+                <iframe class = "Iframe"style="width:99%;height:200px;" onload="applyStyles(this)" 
+					src="https://magix.apps-de-cours.com/server/#/chat/<?= $_SESSION["key"] ?>/large">
+				</iframe>
+            </div> -->
         </div>
 
 </body>
