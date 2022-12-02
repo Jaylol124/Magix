@@ -215,8 +215,8 @@ body {
    left: 0;
    top: 0;
    width: 100%; */
-    height: 20%;
-    background-color: rgba(7, 140, 228, 0.562);
+    height: 13%;
+    background-color: rgba(228, 213, 183, 0.726);
     color: white;
     text-align: center;
     border: 6px solid rgb(0, 0, 0);
@@ -301,7 +301,7 @@ body {
 }
 
 .img-op {
-    width: 25%;
+    width: 15%;
     border-radius: 50%;
 
     margin: auto;
@@ -384,7 +384,7 @@ body {
 .air-jeu {
 
 
-    height: 60%;
+    height: 67%;
 
     display: flex;
 
@@ -442,7 +442,7 @@ body {
     bottom: 0;
     ; */
     height: 20%;
-    background-color: rgba(7, 140, 228, 0.562);
+    background-color: rgba(228, 213, 183, 0.726);
     color: white;
     text-align: center;
     border: 6px solid rgb(0, 0, 0);
@@ -872,6 +872,6 @@ body {
 
 .chat-ingame {
     width: 99%;
-    background-color: rgb(53, 72, 156);
+    background-color: rgba(149,91,69,255);
     /* height: 0px; */
 }

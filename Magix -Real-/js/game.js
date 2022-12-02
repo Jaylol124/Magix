@@ -523,10 +523,22 @@ function end_turn() // pour
 {
     state2("END_TURN",null,null);
 }
+let opencha = true;
 function chat() // pour 
 {
-    
-
+    if(opencha == true)
+    {
+        document.getElementById("reduire-chat").style.height = "0px";
+        document.getElementById("reduire-chat").style.width = "0%";
+        opencha =false
+    }
+    else
+    {
+        document.getElementById("reduire-chat").style.height = "120px";
+        document.getElementById("reduire-chat").style.width = "99%";
+        opencha =true
+    }
+   
 }
 //////////////////////////////////////////////////////////////////////////////////////////// voir la carte
 

@@ -27,7 +27,7 @@ $pageTitle = "Jeu";
     <div class="site-container">
         <div class="page-containerJeu">
             <script>
-                document.body.style.backgroundImage = "url('images/bigback.jpg')";
+                document.body.style.backgroundImage = "url('images/GodsYU.jpg')";
             </script>
 
             <div class="opponent-place">
@@ -95,7 +95,7 @@ $pageTitle = "Jeu";
 
                 </div>
 
-                <div class="chat-ingame">
+                <div class="chat-ingame" id="reduire-chat">
                     <iframe class = "Iframe"style="width:100%;height:100px;" onload="applyStyles(this)" 
                         src="https://magix.apps-de-cours.com/server/#/chat/<?= $_SESSION["key"] ?>/large">
                     </iframe>
@@ -167,7 +167,7 @@ $pageTitle = "Jeu";
                         </div>
 
                         <div class="my-chat">
-                            <button onclick="chat()" name="chat" type="button">OPEN CHAT</button>
+                            <button onclick="chat()" type="button">OPEN CHAT</button>
                         </div>
 
                     </form>
@@ -193,11 +193,7 @@ $pageTitle = "Jeu";
                 </div>
             </div>
 
-            <!-- <div class="chat-ingame">
-                <iframe class = "Iframe"style="width:99%;height:200px;" onload="applyStyles(this)" 
-					src="https://magix.apps-de-cours.com/server/#/chat/<?= $_SESSION["key"] ?>/large">
-				</iframe>
-            </div> -->
+            
         </div>
 
 </body>
