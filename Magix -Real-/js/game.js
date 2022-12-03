@@ -413,9 +413,20 @@ class cartes {
             this.node4.style.color = "red";
             
         }
-        else if (data[i].mechanics.includes("Stealth"))
+        
+        if (data[i].mechanics.includes("Stealth"))
         {
             this.node4.style.color = "green";
+            
+        }
+        
+        if (data[i].mechanics.includes("Charge"))
+        {
+            //this.node4.style.color = "green";
+
+            
+
+            this.node6.style.backgroundImage = "url('images/charge.jpg')";
             
         }
         
@@ -491,6 +502,12 @@ class cartes {
             {
                 
                 this.forName.style.color = "green";
+            }
+            else if (this.forName.textContent.includes("Charge"))
+            {
+                
+                this.forName.style.color = "green";
+                document.querySelector(".card_img_big").style.backgroundImage = "url('images/charge.jpg')";
             }
             else
             {

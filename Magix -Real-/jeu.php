@@ -127,7 +127,7 @@ $pageTitle = "Jeu";
                             <div class="card_hp">0</div>
                         </div>
 
-                        <div class="card_img"></div>
+                        <div class="card_img" id="image-carte"></div>
                         <div class="card_type">0</div>
                         <div class="card_desc">Je suis une carte</div>
                     </div>
@@ -154,10 +154,8 @@ $pageTitle = "Jeu";
                             <p>0</p>
                         </div>
 
-
-
                     </div>
-                    <form action="jeu.php" method="post">
+                    <div class="choix-but">
                         <div class="my-power">
                             <button onclick="power()" type="button">HERO POWER</button>
                         </div>
@@ -169,10 +167,8 @@ $pageTitle = "Jeu";
                         <div class="my-chat">
                             <button onclick="chat()" type="button">OPEN CHAT</button>
                         </div>
-
-                    </form>
-
-
+                    </div>
+                     
                 </div>
 
 
