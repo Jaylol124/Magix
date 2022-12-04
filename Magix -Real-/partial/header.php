@@ -67,12 +67,14 @@
                                 ?>
                                 <a href="login.php">Connexion</a>
                                 
+                                
                                 <?php
                             }
                             else {
                                 ?>
                                 <a href="admin-index.php">Administration</a>
                                 <a href="?logout=true">Déconnexion</a>
+                                
                                 <?php
                             }
                         ?>

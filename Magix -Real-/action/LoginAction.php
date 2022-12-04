@@ -28,7 +28,7 @@
 						// Pour voir les informations retournées : var_dump($result);exit;
 						$key = $result->key;
 						$_SESSION["username"] = $data["username"];
-						// $_SESSION["visibility"] = $result["visibility"];
+						$_SESSION["visibility"] = CommonAction::$VISIBILITY_MEMBER;
 						$_SESSION["key"] = $key;
 		
 						header("location: lobby.php");

@@ -4,7 +4,22 @@ const state = () => {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data); // contient les cartes/état du jeu.
+            
+
+            if(data == "LAST_GAME_WON")
+            {
+                
+                erreur("YOU WIN");
+            }
+            else if (data == "LAST_GAME_LOST")
+            {
+                erreur("YOU LOSE NOOB");
+            }
+            else
+            {
+                erreur(data);
+                console.log(data); // contient les cartes/état du jeu.
+            }
             setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
             
             if (data != null) {
@@ -29,7 +44,16 @@ const state2 = (monchoix,id_my,id_op) => {
         .then(response => response.json())
         .then(data => {
 
-            erreur(data);
+            
+            if(data != String)
+            {
+                erreur("Action valide");
+            }
+            else
+            {
+                erreur(data);
+            }
+            
             
             
         })
@@ -411,20 +435,18 @@ class cartes {
         {
             
             this.node4.style.color = "red";
+            this.node6.style.backgroundImage = "url('images/charge.jpg')";
             
         }
-        
-        if (data[i].mechanics.includes("Stealth"))
+        else if (data[i].mechanics.includes("Stealth"))
         {
             this.node4.style.color = "green";
+            this.node6.style.backgroundImage = "url('images/charge.jpg')";
             
         }
-        
-        if (data[i].mechanics.includes("Charge"))
+        else if (data[i].mechanics.includes("Charge"))
         {
             //this.node4.style.color = "green";
-
-            
 
             this.node6.style.backgroundImage = "url('images/charge.jpg')";
             
@@ -494,20 +516,26 @@ class cartes {
             console.log(this.leover4);
             if(this.forName.textContent.includes("Taunt")  )
             {
-                
-                
                 this.forName.style.color = "red";
+                document.querySelector(".card_img_big").style.backgroundImage = "url('images/taunt.jpg')";
             }
             else if (this.forName.textContent.includes("Stealth"))
             {
                 
-                this.forName.style.color = "green";
+                //this.forName.style.color = "green";
+                document.querySelector(".card_img_big").style.backgroundImage = "url('images/stealthk.jpg')";
             }
             else if (this.forName.textContent.includes("Charge"))
             {
                 
                 this.forName.style.color = "green";
                 document.querySelector(".card_img_big").style.backgroundImage = "url('images/charge.jpg')";
+            }
+            else if (this.forName.textContent.includes("Confused"))
+            {
+                
+                //this.forName.style.color = "green";
+                document.querySelector(".card_img_big").style.backgroundImage = "url('images/confused.jpg')";
             }
             else
             {
@@ -530,6 +558,29 @@ class cartes {
     }
 
 }
+//////////////////////////////////////////////////////////////////////////////////////////// attaquer le joueur directement
+
+
+document.querySelector(".opponent-place").onclick = () => {
+    console.log("laplaceop");
+    if (data["opponent"].handSize == 0 && ma_carte != null)
+    {
+    
+        opp_carte = "0";
+
+        
+
+        state2("ATTACK",ma_carte,opp_carte);
+            
+        ma_carte = null;
+        opp_carte = null;
+
+    }
+}
+    
+
+
+
 //////////////////////////////////////////////////////////////////////////////////////////// pour les actions comme attaquer
 
 function power() // pour 
