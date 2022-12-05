@@ -69,7 +69,7 @@
 		    	</div>
 		    	
 			</div>
-            <form action="stats" method="post">
+            <form action="stats.php" method="post">
                 <div= class="stats_container">
                     <div class="stats_page" >
                         <div class="titre">
