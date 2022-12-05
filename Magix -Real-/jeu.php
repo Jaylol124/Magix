@@ -1,11 +1,11 @@
 <?php
-require_once("action/LobbyAction.php");
+    require_once("action/LobbyAction.php");
 
-$action = new LobbyAction();
-$data = $action->execute();
+    $action = new LobbyAction();
+    $data = $action->execute();
 
-$pageTitle = "Jeu";
-// require_once("partial/header.php");
+    $pageTitle = "Jeu";
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,16 +15,12 @@ $pageTitle = "Jeu";
     <title>CVMAQUA</title>
     <link href="css/global.css" rel="stylesheet" media="screen" />
     <link href="css/jeu.css" rel="stylesheet" media="screen" />
-    <!-- <link href="css/jquery.lightbox-0.5.css" rel="stylesheet" media="screen" /> -->
-    <script src="js/jquery-1.4.2.min.js"></script>
-    <!-- <script src="js/jquery.lightbox-0.5.min.js"></script> -->
     <script src="js/lesModifs.js"></script>
     <script defer src="js/game.js"></script>
 
 </head>
 
 <body>
-    <!-- style="background-Image: url('images/index.jpg')" -->
     <div class="site-container">
         <div class="page-containerJeu">
             <script>

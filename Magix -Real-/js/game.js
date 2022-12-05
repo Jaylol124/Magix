@@ -637,6 +637,8 @@ function chat() // pour
 
 function surrender()
 {
+    erreur("YOU LOSE NOOB");
+    setTimeout(location.replace("lobby.php"), 70000);
     state2("SURRENDER",null,null,null);
 }
 

@@ -1,119 +1,59 @@
-/* index ou il y a le jeu */
 
-/* .line-one{ */
+.lobby_page
+{
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-rows: 1fr 1fr;
+    width: 90%;
+    height: 500px;
+    margin: auto;
+}
 
-/* border-bottom: 3px solid rgb(0, 47, 255);
-    
-    width: 110vw;
-    
-    transform: rotate(-25deg);
-    
-    transform-origin: right; */
-
-/* border-left: 11px solid #050505;
-    display: block;
-    height: 100px;
+.les-options {
+    margin: 4px 2px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     margin: 0 auto;
-    width: 1px;
-    height: 100vmax; */
+}
 
-    .lobby_page
-    {
-        display: grid;
-        grid-auto-flow: row;
-        grid-template-rows: 1fr 1fr;
-       
+.les-options button{
+    background-color: #73AD21;
+    width: 200px;
+    height: 100px;
+}
 
-        width: 90%;
-
-        height: 500px;
-
-        margin: auto;
-    }
-
+.jouer
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
+    border: 3px solid green; 
+}
 
-    
 
-    
-    
-    .les-options {
-    
-       
-    
-        margin: 4px 2px;
-        
-        
 
-        display: flex;
+.les-cartes
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid green; 
+}
 
-        flex-direction: row;
+.chatIframe {
+    border: 3px solid #73AD21;
+    margin-top: 10%;
+}
 
-        align-items: center;
+.chat {
+    display: flex;
 
-        justify-content: center;
+    justify-content: center;
 
-        margin: 0 auto;
+    height: 50px;
 
-    }
-
-    .les-options button{
-
-    
-        background-color: #73AD21;
-
-        width: 200px;
-
-        height: 100px;
-    }
-
-    .jouer
-    {
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        
-        border: 3px solid green; 
-
-        
-        
-    }
-
-    
-
-    .les-cartes
-    {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        
-        border: 3px solid green; 
-
-        
-    }
-   
-    .chatIframe {
-
-        
-    
-        border: 3px solid #73AD21;
-    
-        margin-top: 10%;
-    
-        
-    }
-    
-    .chat {
-    
-    
-        display: flex;
-    
-        justify-content: center;
-
-        height: 50px;
-
-        grid: 2;
-    
-    
-    }
+    grid: 2;
+}

@@ -42,20 +42,14 @@
 			
                 $data["key"] = $_SESSION["key"];
                 $data["type"] = "PVP";
-                // $data["type"] = $_SESSION["TRAINING"];
 			 	$result = parent::callAPI("games/auto-match",$data);
 	
 			 	if (!empty($result)) {
 					if ($result == "INVALID_KEY" || $result == "INVALID_GAME_TYPE" || $result == "DECK_INCOMPLETE" ) {
-						$hasConnectionError = true;
-                        // header("location: lobby.php");
-                        
-                        
+						$hasConnectionError = true;   
 					}
 					else {
-		
 						header("location: jeu.php");
-                        
 						exit;
 					}
 			 	}

@@ -6,7 +6,7 @@
 	
 
 	$pageTitle = "Statistiques";
-	// require_once("partial/header.php");
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,15 +16,15 @@
         <link href="css/global.css" rel="stylesheet" media="screen" />
 		<link href="css/lobby.css" rel="stylesheet" media="screen" />
         <link href="css/Stats.css" rel="stylesheet" media="screen" />
-        <!-- <link href="css/jquery.lightbox-0.5.css" rel="stylesheet" media="screen" /> -->
+
         <script src="js/jquery-1.4.2.min.js"></script>
-        <!-- <script src="js/jquery.lightbox-0.5.min.js"></script> -->
+
 		<script src="js/lesModifs.js"></script>
-		<!-- <script defer src="js/lobby.js"></script> -->
+
         
     </head>
     <body >
-        <!-- style="background-Image: url('images/index.jpg')" -->
+        
 		<div class="site-container">
 		    <div class="page-container" >
 		    	<div class="site-header">
