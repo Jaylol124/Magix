@@ -1,25 +1,37 @@
 const state = () => {
     fetch("ajax.php", {   // Il faut créer cette page et son contrôleur appelle 
-        method: "POST"        // l’API (games/state)
+        method: "POST" 
+  
     })
         .then(response => response.json())
         .then(data => {
-            
 
             if(data == "LAST_GAME_WON")
             {
                 
                 erreur("YOU WIN");
+                setTimeout(location.replace("lobby.php"), 70000);
+
             }
             else if (data == "LAST_GAME_LOST")
             {
                 erreur("YOU LOSE NOOB");
+                setTimeout(location.replace("lobby.php"), 70000);
             }
             else
             {
-                erreur(data);
-                console.log(data); // contient les cartes/état du jeu.
+                if(data == "[object Object]")
+                {
+
+                }
+                else
+                {
+                    erreur(data);
+                }
+                
+                
             }
+
             setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
             
             if (data != null) {
@@ -28,13 +40,20 @@ const state = () => {
         })
 }
 
-const state2 = (monchoix,id_my,id_op) => {
+const state2 = (monchoix,uid,uid_op,id_my) => {
     let formData = new FormData();
 
     formData.append("choix",monchoix);
-    formData.append("maCarte",id_my);
-    formData.append("opCarte",id_op);
+    formData.append("maCarte",uid);
+    formData.append("opCarte",uid_op);
 
+    if(id_my != null)
+    {
+        formData.append("id",id_my);
+
+    }
+    
+    
     
 
     fetch("ajax_attaquer.php", {   // Il faut créer cette page et son contrôleur appelle 
@@ -44,18 +63,16 @@ const state2 = (monchoix,id_my,id_op) => {
         .then(response => response.json())
         .then(data => {
 
-            
-            if(data != String)
+            if(data == "[object Object]")
             {
-                erreur("Action valide");
+                erreur("MOVE POSSIBLE");
+                
             }
             else
             {
                 erreur(data);
+                
             }
-            
-            
-            
         })
 }
         
@@ -285,6 +302,14 @@ function erreur(data) // affiche les different code d'erreur
     let textNode = document.createTextNode(data);
     div.append(textNode);
 
+    if (data == "YOU LOSE NOOB")
+    {
+        div.style.fontSize = "200px"
+    }
+    else if (data == "YOU WIN")
+    {
+        div.style.fontSize = "200px"
+    }
     let node = document.querySelector(".erreur");
 
     node.removeChild(node.lastElementChild);
@@ -301,7 +326,7 @@ function re_my_hand(data) // pour actualiser les cartes de ma main
 
     for (i = 0; i < data["hand"].length; i++) {
 
-        spriteList.push(new cartes(data["hand"], i, ".my-hand",data["hand"][i].uid));
+        spriteList.push(new cartes(data["hand"], i, ".my-hand",data["hand"][i].uid,data["hand"][i].id));
         console.log(data["hand"][i].mechanics[0]);
         
 
@@ -315,7 +340,7 @@ function re_board(data) // pour actualiser les cartes sur le terrains
 
     for (i = 0; i < data["board"].length; i++) {
 
-        spriteList.push(new cartes(data["board"], i, ".my-playCard", data["board"][i].uid));
+        spriteList.push(new cartes(data["board"], i, ".my-playCard", data["board"][i].uid,data["board"][i].id));
 
         
 
@@ -323,7 +348,7 @@ function re_board(data) // pour actualiser les cartes sur le terrains
 
     for (i = 0; i < data["opponent"].board.length; i++) {
 
-        spriteList.push(new cartes(data["opponent"]["board"], i, ".op-playCard",data["opponent"]["board"][i].uid));
+        spriteList.push(new cartes(data["opponent"]["board"], i, ".op-playCard",data["opponent"]["board"][i].uid,data["opponent"]["board"][i].id));
 
     }
 
@@ -347,7 +372,7 @@ let ma_carte;
 let opp_carte;
 
 class cartes {
-    constructor(data, i, direction,uid) {
+    constructor(data, i, direction,uid,id) {
 
         this.div = document.createElement("div");
 
@@ -429,29 +454,39 @@ class cartes {
 
         this.div_princ.append(this.div_secon);
         this.uid = uid;
+        this.id = id;
 
         
-        if(data[i].mechanics.includes("Taunt"))
+        if(data[i].mechanics.includes("Taunt")  )
         {
-            
             this.node4.style.color = "red";
-            this.node6.style.backgroundImage = "url('images/charge.jpg')";
-            
+            this.node6.style.backgroundImage = "url('images/taunt.jpg')";
         }
         else if (data[i].mechanics.includes("Stealth"))
         {
-            this.node4.style.color = "green";
-            this.node6.style.backgroundImage = "url('images/charge.jpg')";
             
+            this.node4.style.color = "green";
+            this.node6.style.backgroundImage = "url('images/stealthk.jpg')";
         }
         else if (data[i].mechanics.includes("Charge"))
         {
-            //this.node4.style.color = "green";
-
+            
+            this.node4.style.color = "green";
             this.node6.style.backgroundImage = "url('images/charge.jpg')";
+        }
+        else if (data[i].mechanics.includes("Confused"))
+        {
+            
+            this.node4.style.color = "green";
+            this.node6.style.backgroundImage = "url('images/confused.jpg')";
+        }
+        else
+        {
+            this.node4.style.color = "black";
+            this.node6.style.backgroundImage = "url('images/cartoonbluedragon.png')";
             
         }
-        
+
         
         
         this.div_secon.onclick = () => {
@@ -472,7 +507,7 @@ class cartes {
 
                 console.log(opp_carte);
 
-                state2("ATTACK",ma_carte,opp_carte);
+                state2("ATTACK",ma_carte,opp_carte,null);
                     
                 ma_carte = null;
                 opp_carte = null;
@@ -486,7 +521,7 @@ class cartes {
                 // this.uid = data["hand"][this.index].uid;
                 ma_carte = this.uid;
                 console.log(ma_carte);
-                state2("PLAY",ma_carte,null);
+                state2("PLAY",ma_carte,null,id);
             }
            
 
@@ -522,7 +557,7 @@ class cartes {
             else if (this.forName.textContent.includes("Stealth"))
             {
                 
-                //this.forName.style.color = "green";
+                this.forName.style.color = "black";
                 document.querySelector(".card_img_big").style.backgroundImage = "url('images/stealthk.jpg')";
             }
             else if (this.forName.textContent.includes("Charge"))
@@ -534,25 +569,16 @@ class cartes {
             else if (this.forName.textContent.includes("Confused"))
             {
                 
-                //this.forName.style.color = "green";
+                this.forName.style.color = "black";
                 document.querySelector(".card_img_big").style.backgroundImage = "url('images/confused.jpg')";
             }
             else
             {
+                document.querySelector(".card_img_big").style.backgroundImage = "url('images/cartoonbluedragon.png')";
                 this.forName.style.color = "black";
             }
 
-            
-            
-            
-            
-
-            // carte.append(forAtk)
-            // carte.append(forCost)
-            // carte.append(forHp)
-
-            // carte.append(forAtk)
-            // carte.append(forAtk)
+         
         }
         
     }
@@ -563,14 +589,14 @@ class cartes {
 
 document.querySelector(".opponent-place").onclick = () => {
     console.log("laplaceop");
-    if (data["opponent"].handSize == 0 && ma_carte != null)
+    if ( ma_carte != null)
     {
     
         opp_carte = "0";
 
         
 
-        state2("ATTACK",ma_carte,opp_carte);
+        state2("ATTACK",ma_carte,opp_carte,null);
             
         ma_carte = null;
         opp_carte = null;
@@ -585,11 +611,11 @@ document.querySelector(".opponent-place").onclick = () => {
 
 function power() // pour 
 {
-    state2("HERO_POWER",null,null);
+    state2("HERO_POWER",null,null,null);
 }
 function end_turn() // pour 
 {
-    state2("END_TURN",null,null);
+    state2("END_TURN",null,null,null);
 }
 let opencha = true;
 function chat() // pour 
@@ -608,6 +634,16 @@ function chat() // pour
     }
    
 }
+
+function surrender()
+{
+    state2("SURRENDER",null,null,null);
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////// voir la carte
+////////////////////////////////////////////////////////////////////////////////////////////deconnexion
+
+
+
 
 

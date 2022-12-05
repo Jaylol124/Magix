@@ -1,5 +1,7 @@
 CREATE TABLE info_jeu (
-	id serial PRIMARY KEY,
-	idCard integer NOT NULL,
-	
+	idCard integer ,
+	id serial PRIMARY KEY
 );
+
+
+-- drop table info_jeu;

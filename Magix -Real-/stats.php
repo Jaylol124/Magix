@@ -1,11 +1,11 @@
 <?php
-	require_once("action/LobbyAction.php");
+	require_once("action/StatsAction.php");
 
-	$action = new LobbyAction();
+	$action = new StatsAction();
 	$data = $action->execute();
 	
 
-	$pageTitle = "Lobby";
+	$pageTitle = "Statistiques";
 	// require_once("partial/header.php");
 ?>
 <!DOCTYPE html>
@@ -15,6 +15,7 @@
         <title>CVMAQUA</title>
         <link href="css/global.css" rel="stylesheet" media="screen" />
 		<link href="css/lobby.css" rel="stylesheet" media="screen" />
+        <link href="css/Stats.css" rel="stylesheet" media="screen" />
         <!-- <link href="css/jquery.lightbox-0.5.css" rel="stylesheet" media="screen" /> -->
         <script src="js/jquery-1.4.2.min.js"></script>
         <!-- <script src="js/jquery.lightbox-0.5.min.js"></script> -->
@@ -29,16 +30,13 @@
 		    	<div class="site-header">
                     <a href="#default" class="logo">Magix</a>
                     <a href="#default" class="nowPage"><?= $pageTitle ?></a>
-                    
-                    
-                    
 		    		<div class="menu-section">
 		    				
                         <?php
                             if ($data["isConnected"] ) {
                                 ?>
+                                <a href="lobby.php">Lobby</a>
                                 <a href="images.php">Changer les cartes</a>
-                                <a href="stats.php">Statistiques</a>
                                 <?php
                                 
                                 
@@ -49,7 +47,6 @@
                             if (!$data["isConnected"]) {
                                 ?>
                                 <a href="login.php">Connexion</a>
-                                
                                 <?php
                             }
                             else {
@@ -60,12 +57,9 @@
                         ?>
 						<script>
             
-							if ("<?= $pageTitle ?>" ==  "Lobby") 
+							if ("<?= $pageTitle ?>" ==  "Page-Choix") 
 							{
-
 								document.body.style.backgroundImage = "url('images/backcartejeu.jpg')";
-									
-									
 							}
 
         				</script>
@@ -75,25 +69,34 @@
 		    	</div>
 		    	
 			</div>
-			<form action="lobby.php" method="post">
-				<div class="lobby_page" >
-					<div class="les-options">
-						
-						<div class= "jouer">
-							<button  name="TRAINING" type="submit">TRAINING</button>
-							
-						</div>
-						<div class= "les-cartes">
-							<button  name="PVP" type="submit">PVP</button>
-						</div>
-					</div>	
-					<div class= "chat">
-						<iframe class = "chatIframe"style="width:1300px;height:400px;" onload="applyStyles(this)" 
-							src="https://magix.apps-de-cours.com/server/#/chat/<?= $_SESSION["key"] ?>/large">
-						</iframe>
-					</div>
-				</div>
-			</form>
+            <form action="stats" method="post">
+                <div= class="stats_container">
+                    <div class="stats_page" >
+                        <div class="titre">
+                            <h1> LES STATS</h1>
+                        </div>
+                        <div class="poucentage_carte">
+                            <?php
+                                foreach ($data["total"] as $totals)
+                                {
+                                    foreach ($data["listeandcont"] as $id) {
+                                        ?>
+                                        <div class="resultat">LE ID DE LA CARTE <?= $id["idcard"]?> =====> <?= $id["occurence"] ?> =====> <?= round($id["occurence"]/ $totals["total"] * 100,1)  ?>%</div>                            
+                                        <?php
+                                    }
+                                }
+                                
+                            ?>
+                        </div>
+                        <div class="button">
+                            <button name="supp" type="submit"> Effacer </button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </form>
+            
+			
 			
 <?php
 	require_once("partial/footer.php");

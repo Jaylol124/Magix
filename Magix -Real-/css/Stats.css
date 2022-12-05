@@ -1,0 +1,77 @@
+.stats_container
+{
+    
+    height:80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vh;;
+    font-family: "beast",sans-serif;
+}
+/* .stats_page
+{
+    height:80vh;
+} */
+.poucentage_carte
+{
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+    
+    border: 3px solid green; 
+
+    height:80vh;
+
+    width: 90vh;
+
+    
+
+    background-color: #869c04;
+}
+
+.resultat
+{
+    padding: 2%;
+}
+.titre{
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: #73AD21;
+}
+
+.button
+{
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    height: 50px;
+}
+
+.button button
+{
+    height: 100%;
+
+    width: 20%;
+
+    background-color: #73AD21;
+}
+
+.button button:hover {
+    background-color: gray;
+}

@@ -168,6 +168,10 @@ $pageTitle = "Jeu";
                         <div class="my-chat">
                             <button onclick="chat()" type="button">OPEN CHAT</button>
                         </div>
+
+                        <div class="surrender">
+                            <button onclick="surrender()" type="button">SURRENDER</button>
+                        </div>
                     </div>
                      
                 </div>

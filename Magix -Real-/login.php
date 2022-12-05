@@ -60,29 +60,12 @@
                     
 		    		<div class="menu-section">
 		    				
-                        <?php
-                            if ($data["isConnected"] ) {
-                                ?>
-                                <a href="index.php">Accueil</a>
-                                <a href="images.php">Galerie photos</a>
-                                <a href="contact.php">Contactez-nous</a>
-                                <?php
-                                
-                                
-                            }
-                            
-                        ?>
+                        
                         <?php
                             if (!$data["isConnected"]) {
                                 ?>
                                 <a href="login.php">Connexion</a>
                                 
-                                <?php
-                            }
-                            else {
-                                ?>
-                                <a href="admin-index.php">Administration</a>
-                                <a href="?logout=true">Déconnexion</a>
                                 <?php
                             }
                         ?>

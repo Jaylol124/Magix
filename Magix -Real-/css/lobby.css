@@ -17,41 +17,103 @@
     width: 1px;
     height: 100vmax; */
 
+    .lobby_page
+    {
+        display: grid;
+        grid-auto-flow: row;
+        grid-template-rows: 1fr 1fr;
+       
+
+        width: 90%;
+
+        height: 500px;
+
+        margin: auto;
+    }
+
+    
+
+    
+
+    
+    
+    .les-options {
+    
+       
+    
+        margin: 4px 2px;
+        
+        
+
+        display: flex;
+
+        flex-direction: row;
+
+        align-items: center;
+
+        justify-content: center;
+
+        margin: 0 auto;
+
+    }
+
+    .les-options button{
+
+    
+        background-color: #73AD21;
+
+        width: 200px;
+
+        height: 100px;
+    }
+
+    .jouer
+    {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        border: 3px solid green; 
+
+        
+        
+    }
+
+    
+
+    .les-cartes
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        border: 3px solid green; 
+
+        
+    }
+   
     .chatIframe {
 
-        background-color: rgb(145, 136, 16);
+        
     
         border: 3px solid #73AD21;
     
-        margin-top: 200px;
+        margin-top: 10%;
     
-        display: block;
+        
     }
     
     .chat {
     
-        /* width: 100px; */
-    
-    
-    
-        /* justify-content: center; */
-    
-        /* position: absolute;
-        right: ;
-        bottom: 500px ; */
     
         display: flex;
     
         justify-content: center;
+
+        height: 50px;
+
+        grid: 2;
     
-    
-    }
-    
-    .les-options {
-    
-        width: 50%;
-    
-        margin: 4px 2px;
-        display: inline-block;
     
     }

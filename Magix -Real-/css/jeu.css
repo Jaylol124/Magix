@@ -617,10 +617,7 @@
     display: grid;
 
     gap: 1%;
-    
-
-    
-
+  
     padding: 20px 20px 20px 25px;
 
     grid-auto-flow: column;
@@ -703,5 +700,11 @@
 .chat-ingame {
     width: 99%;
     background-color: rgba(149,91,69,255);
-    /* height: 0px; */
+    
+}
+
+.erreur p
+{
+    font-size: 25px;
+    font-family: "beast",sans-serif;
 }
