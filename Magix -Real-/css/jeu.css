@@ -2,18 +2,6 @@
 
 .page-containerJeu {
 
-    /* display: flex;
-
-    flex-direction: column;
-
-    justify-content: space-between; */
-
-    /* width: 100vw;
-    height: 100vh; */
-
-    /* grid-auto-columns: row;
-    grid-template-rows: 0.5fr 3fr 0.5fr; */
-
     display: flex;
 
     flex-direction: column;
@@ -26,27 +14,13 @@
 }
 
 .opponent-place {
-    /* position: fixed;
-   left: 0;
-   top: 0;
-   width: 100%; */
+
     height: 13%;
     background-color: rgba(228, 213, 183, 0.726);
     color: white;
     text-align: center;
     border: 6px solid rgb(0, 0, 0);
 
-    /* display: grid;
-
-   grid-template-columns: repeat(4,600px);
-
-   gap: 1%;
-   
-   grid-auto-rows: 100px;
-
-   /* display: flex; */
-
-    /* justify-content: start;  */
 
     display: grid;
     grid-auto-flow: column;
@@ -78,9 +52,6 @@
 
     width: 20px;
 
-
-
-
 }
 
 .back {
@@ -88,8 +59,6 @@
     height: 100px;
 
     width: 70px;
-
-
 
 }
 
@@ -106,7 +75,6 @@
     border-right: 2px solid rgb(0, 0, 0);
 
     border-left: 2px solid rgb(0, 0, 0);
-
 
 }
 
@@ -134,9 +102,6 @@
     display: flex;
 
     align-items: center;
-
-
-
 
     background-image: url('../images/vie.png');
     background-position: 50% 50%;
@@ -257,10 +222,6 @@
 
 .my-player {
 
-    /* position: fixed;
-    left: 0;
-    bottom: 0;
-    ; */
     height: 20%;
     background-color: rgba(228, 213, 183, 0.726);
     color: white;
@@ -292,14 +253,6 @@
 
 
 }
-
-/* .my-card
-{
-    height: 100%;
-
-    width: 150px;
-} */
-
 
 .card {
     
@@ -461,9 +414,6 @@
 
     align-items: center;
 
-
-
-
     background-image: url('../images/mana.png');
     background-position: 50% 50%;
 
@@ -489,8 +439,6 @@
 
     align-content: center;
 
-
-    
 }
 
 .turn {
@@ -515,13 +463,12 @@
 
     position: relative;
 
-
 }
 
 .millieu-tmp {
     width: 20px;
     height: 20px;
-    background-color: #000;
+    background-color: rgba(255, 0, 0, 0.514);
     border-radius: 50%;
     position: absolute;
     top: 40px;
@@ -548,7 +495,7 @@
 .le-baton .baton {
     width: 4px;
     height: 40px;
-    background-color: aquamarine;
+    background-color: rgba(255, 0, 0, 0.514);
     position: absolute;
     left: 45px;
 
@@ -570,7 +517,6 @@
 
 .card-viewer {
     position: absolute;
-    /* background: grey; */
     top: 25%;
     left: 30px;
     width: 300px;
@@ -623,8 +569,6 @@
     grid-auto-flow: column;
     grid-template-columns: 1fr 1fr 1fr;
 
-
-
     text-align: center;
 
     color: cyan;
@@ -665,8 +609,6 @@
 .card_img_big {
     padding-top: 70%;
     background-image: url(../images/dorknight.jpg);
-
-
 
     background-repeat: no-repeat;
 

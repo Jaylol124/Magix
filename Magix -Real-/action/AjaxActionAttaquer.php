@@ -18,26 +18,17 @@
                 StatsDao::add_id($data2["id"]);
             }
             
-            
             $data["key"] = $_SESSION["key"];
 
-            
             $data["type"] = $_POST["choix"];
             $data["uid"] = $_POST["maCarte"];
             $data["targetuid"] = $_POST["opCarte"];
             
-
             $result = parent::callAPI("games/action",$data);
 
-            
-            
-           
             if (!empty($result)) {
 
                 return compact("result");
             }
-
-
-            
         }
     }

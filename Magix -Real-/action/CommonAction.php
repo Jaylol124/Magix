@@ -18,8 +18,6 @@
 				session_unset();
 				session_destroy();
 				session_start();
-
-				
 			}
 
 			if (empty($_SESSION["visibility"])) {
@@ -38,9 +36,6 @@
 			return $data;
 		}
 
-		/**
-		 * data = array('key1' => 'value1', 'key2' => 'value2');
-		 */
 		public function callAPI($service, array $data) {
 			$apiURL = "https://magix.apps-de-cours.com/api/" . $service;
 

@@ -14,7 +14,6 @@
 
 			$data = [];
 			
-			
 			if (isset($_POST["TRAINING"])) {
 				echo($_POST["TRAINING"]);
 			
@@ -26,12 +25,9 @@
 			 	if (!empty($result)) {
 					if ($result == "INVALID_KEY" || $result == "INVALID_GAME_TYPE" || $result == "DECK_INCOMPLETE" ) {
 						$hasConnectionError = true;
-                        
 					}
 					else {
-					
 						header("location: jeu.php");
-                        
 						exit;
 					}
 			 	}

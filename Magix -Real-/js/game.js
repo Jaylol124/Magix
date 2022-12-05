@@ -10,25 +10,25 @@ const state = () => {
             {
                 
                 erreur("YOU WIN");
-                setTimeout(location.replace("lobby.php"), 70000);
+                setTimeout(function() {location.href = "lobby.php"}, 5000);
 
             }
             else if (data == "LAST_GAME_LOST")
             {
                 erreur("YOU LOSE NOOB");
-                setTimeout(location.replace("lobby.php"), 70000);
+                setTimeout(function() {location.href = "lobby.php"}, 5000);
             }
             else
             {
                 if(data == "[object Object]")
                 {
-
+                    // vide car on ne veut pas afficher se texte
                 }
                 else
                 {
                     erreur(data);
                 }
-                
+                console.log(data);
                 
             }
 
@@ -304,11 +304,11 @@ function erreur(data) // affiche les different code d'erreur
 
     if (data == "YOU LOSE NOOB")
     {
-        div.style.fontSize = "200px"
+        div.style.fontSize = "100px"
     }
     else if (data == "YOU WIN")
     {
-        div.style.fontSize = "200px"
+        div.style.fontSize = "100px"
     }
     let node = document.querySelector(".erreur");
 
@@ -327,9 +327,6 @@ function re_my_hand(data) // pour actualiser les cartes de ma main
     for (i = 0; i < data["hand"].length; i++) {
 
         spriteList.push(new cartes(data["hand"], i, ".my-hand",data["hand"][i].uid,data["hand"][i].id));
-        console.log(data["hand"][i].mechanics[0]);
-        
-
     }
 
 }
@@ -465,7 +462,7 @@ class cartes {
         else if (data[i].mechanics.includes("Stealth"))
         {
             
-            this.node4.style.color = "green";
+            this.node4.style.color = "black";
             this.node6.style.backgroundImage = "url('images/stealthk.jpg')";
         }
         else if (data[i].mechanics.includes("Charge"))
@@ -477,7 +474,7 @@ class cartes {
         else if (data[i].mechanics.includes("Confused"))
         {
             
-            this.node4.style.color = "green";
+            this.node4.style.color = "black";
             this.node6.style.backgroundImage = "url('images/confused.jpg')";
         }
         else
@@ -493,19 +490,13 @@ class cartes {
             
             if(this.enplacement == ".my-playCard" )
             {
-                
                 ma_carte = this.uid
-                console.log(ma_carte);
-                
-                
             }
 
             if (this.enplacement == ".op-playCard" && ma_carte != null)
             {
                 
                 opp_carte = this.uid;
-
-                console.log(opp_carte);
 
                 state2("ATTACK",ma_carte,opp_carte,null);
                     
@@ -517,10 +508,7 @@ class cartes {
 
             if (this.enplacement == ".my-hand")
             {
-                console.log(this.uid);
-                // this.uid = data["hand"][this.index].uid;
                 ma_carte = this.uid;
-                console.log(ma_carte);
                 state2("PLAY",ma_carte,null,id);
             }
            
@@ -528,7 +516,6 @@ class cartes {
         }
         this.div_secon.onmouseover = () => { /// affiche la carte en plus gros
 
-            // let carte = document.querySelector(".card-viewer");
             remove(".card_atk_big");
             remove(".card_cost_big");
             remove(".card_hp_big");
@@ -536,11 +523,6 @@ class cartes {
             remove(".card_type_big");
             remove(".card_desc_big");
             
-            // let forAtk = document.querySelector(".card_atk_big");
-            // let forCost = document.querySelector(".card_cost_big");
-            // let forHp = document.querySelector(".card_hp_big");
-
-            // let forName = document.querySelector(".card_type_big");
             
             this.forAtk.append(this.leover1)
             this.forCost.append(this.leover2) 
@@ -548,7 +530,6 @@ class cartes {
             
             this.forName.append(this.leover4) 
 
-            console.log(this.leover4);
             if(this.forName.textContent.includes("Taunt")  )
             {
                 this.forName.style.color = "red";
@@ -588,19 +569,15 @@ class cartes {
 
 
 document.querySelector(".opponent-place").onclick = () => {
-    console.log("laplaceop");
     if ( ma_carte != null)
     {
     
         opp_carte = "0";
 
-        
-
         state2("ATTACK",ma_carte,opp_carte,null);
             
         ma_carte = null;
         opp_carte = null;
-
     }
 }
     
@@ -638,8 +615,8 @@ function chat() // pour
 function surrender()
 {
     erreur("YOU LOSE NOOB");
-    setTimeout(location.replace("lobby.php"), 70000);
     state2("SURRENDER",null,null,null);
+    setTimeout(function() {location.href = "lobby.php"}, 5000);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////// voir la carte

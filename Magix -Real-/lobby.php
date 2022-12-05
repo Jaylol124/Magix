@@ -35,9 +35,7 @@
                                 ?>
                                 <a href="images.php">Changer les cartes</a>
                                 <a href="stats.php">Statistiques</a>
-                                <?php
-                                
-                                
+                                <?php  
                             }
                             
                         ?>
@@ -58,10 +56,7 @@
             
 							if ("<?= $pageTitle ?>" ==  "Lobby") 
 							{
-
 								document.body.style.backgroundImage = "url('images/backcartejeu.jpg')";
-									
-									
 							}
 
         				</script>

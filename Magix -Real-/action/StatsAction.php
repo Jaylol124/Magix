@@ -9,13 +9,9 @@
         }
 
         protected function executeAction() {
-
-
-
             $total = StatsDao::get_count();
 
             $listeandcont = StatsDao::get_count_each_card();
-
 
             if (isset($_POST["supp"])) {
 				
@@ -24,9 +20,6 @@
                         
                 exit;
 			}
-            
             return compact("listeandcont","total");
-            
-
         }
     }
